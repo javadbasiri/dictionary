@@ -4,6 +4,17 @@ const Definition =({ word,meaning })=>{
     return(
         <div className="wrapper">
             {
+                meaning[0] && word && (
+                    <audio 
+                        style={{width:"100%"}}
+                        src={meaning[0].phonetics[0] && meaning[0].phonetics[0].audio}
+                        controls
+                    >   
+                        does not support
+                    </audio>
+                )
+            }
+            {
                 word === "" ? <span className="subtitle">try to search a word</span>:
                 
                 meaning.map(item=>(
