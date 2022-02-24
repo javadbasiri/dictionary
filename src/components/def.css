@@ -1,0 +1,31 @@
+.wrapper{
+    width: 70%;
+    border: 2px solid black;
+    border-radius:1rem;
+    max-height: 50vh;
+    margin: 2rem auto;
+    padding:1rem;
+    overflow:hidden ;
+    overflow-y:auto;
+    scrollbar-width: thin;
+}
+
+.subtitle{
+    font-weight: bold;
+    font-size: 5vw;
+}
+
+.single-meaning{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: lightskyblue;
+    color: black;
+    padding:1rem;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+}
+
+p span{
+    font-weight: bold;
+}

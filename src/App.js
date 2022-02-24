@@ -1,23 +1,29 @@
-import logo from './logo.svg';
+import React,{ useState,useEffect } from "react"
+import axios from "axios";
+import Header from "./components/Header";
+import Definition from "./components/Definition";
 import './App.css';
 
 function App() {
+
+  const [word , setWord] = useState("")
+  const [meaning , setMeaning] = useState([])
+
+  const dictionaryApi = async()=>{
+     await axios.get(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
+        .then(res=>setMeaning(res.data))
+  }
+
+  console.log(meaning)
+
+  useEffect(()=>{
+    dictionaryApi()
+  },[word])
+ 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header word={word} setWord={setWord}/>
+      <Definition word={word} meaning={meaning}/>
     </div>
   );
 }
